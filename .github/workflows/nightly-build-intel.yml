@@ -70,10 +70,10 @@ jobs:
   make_dist:
     name: Make development distribution
     needs: get_version
-    uses: MODFLOW-USGS/modflow6/.github/workflows/release.yml@develop
+    uses: w-bonelli/modflow6/.github/workflows/release.yml@fix-check-dist
     with:
       approve: false
-      branch: develop
+      branch: fix-check-dist
       developmode: true
       full: false
       run_tests: false
