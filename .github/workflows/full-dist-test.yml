@@ -7,6 +7,7 @@ on:
       - master
       - develop
       - ci-diagnose*
+      - version-hash
     paths-ignore:
       - '**.md'
   pull_request:
@@ -61,4 +62,4 @@ jobs:
       developmode: false
       full: true
       run_tests: false
-      version: "${{ needs.get_version.outputs.version }}"
+      version: ${{ needs.get_version.outputs.version }}

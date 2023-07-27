@@ -16,6 +16,7 @@ on:
       - master
       - develop
       - ci-diagnose*
+      - version-hash
     paths-ignore:
       - '**.md'
   pull_request:
@@ -77,7 +78,7 @@ jobs:
       developmode: true
       full: false
       run_tests: false
-      version: ${{ needs.get_version.outputs.version }}
+      version: ${{ needs.get_version.outputs.version }}+${{ github.sha }}
 
   release:
     name: Create release
