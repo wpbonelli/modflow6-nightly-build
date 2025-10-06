@@ -55,11 +55,11 @@ jobs:
           echo "version=${ver}" >> "$GITHUB_OUTPUT"
 
   make_dist:
-    name: Make full distribution
+    name: Make releasemode distribution
     needs: get_version
     uses: wpbonelli/modflow6/.github/workflows/release.yml@release-scripts
     with:
-      branch: develop
+      branch: release-scripts
       releasemode: true
-      run_tests: false
+      run_tests: true
       version: "${{ needs.get_version.outputs.version }}"

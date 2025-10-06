@@ -71,13 +71,13 @@ jobs:
           echo "version=${ver}" >> "$GITHUB_OUTPUT"
 
   make_dist:
-    name: Make development distribution
+    name: Make developmode distribution
     needs: get_version
     uses: wpbonelli/modflow6/.github/workflows/release.yml@release-scripts
     with:
-      branch: develop
+      branch: release-scripts
       releasemode: false
-      run_tests: false
+      run_tests: true
       version: ${{ needs.get_version.outputs.version }}
 
   release:
@@ -169,4 +169,4 @@ jobs:
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: "nightly/*.zip,nightly/doc/*.pdf"
-
+          
